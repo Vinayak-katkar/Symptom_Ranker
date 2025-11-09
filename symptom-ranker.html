@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Symptom Ranker — Tool</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Symptom Ranker</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="symptom-ranker.html" aria-current="page">Tool</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top:28px">
+    <div class="card">
+      <header class="flex between center">
+        <div>
+          <h1>Symptom Ranker — Demo</h1>
+          <div class="muted small">Tag cloud + autocomplete + timeline + ranking</div>
+        </div>
+        <div class="muted small">Demo • Educational</div>
+      </header>
+    </div>
+
+    <div class="card">
+      <div style="margin-bottom:12px">
+        <div class="small">Popular symptoms (click to add)</div>
+        <div id="tagcloud" style="margin-top:8px"></div>
+      </div>
+
+      <div style="margin-top:8px">
+        <div class="small">Search symptom</div>
+        <input id="search" class="input" placeholder="Type a symptom (e.g. fever)" role="combobox" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false" aria-haspopup="listbox" />
+        <ul id="suggest" class="suggest" role="listbox" aria-label="Suggestions" style="display:none"></ul>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="small">Selected symptoms & timeline (days ago)</div>
+        <div id="selectedArea" style="margin-top:8px"></div>
+      </div>
+
+      <div style="margin-top:10px" class="flex between center wrap">
+        <div class="flex gap-sm center">
+          <label class="small" for="topSelect">Show top</label>
+          <select id="topSelect" class="select">
+            <option>3</option><option selected>5</option><option>10</option>
+          </select>
+        </div>
+        <div class="flex gap-sm">
+          <button id="clearBtn" class="btn secondary" aria-label="Clear all selected symptoms">Clear All</button>
+          <button id="analyzeBtn" class="btn" aria-label="Analyze selected symptoms">Analyze</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultsWrap" class="stack" aria-live="polite"></div>
+
+    <div class="card">
+      <div class="small">Precautions (based on selected symptoms)</div>
+      <div id="precArea" style="margin-top:8px"></div>
+      <div class="muted" style="margin-top:10px">Note: This is educational only. Always consult a doctor for medical advice.</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="muted small">Educational demo • Not medical advice • © 2025</div>
+    </div>
+  </footer>
+
+  <script src="assets/symptom-ranker.js"></script>
+</body>
+</html>
